@@ -1,5 +1,7 @@
 // IMPORTS HERE 
 import java.awt.*;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 
@@ -9,6 +11,11 @@ import javax.swing.*;
 public class MapPIN {
 
     JFrame screen;
+    JPanel mainMenu;
+    JButton quit;
+    JButton city;
+    JButton country;
+
 
     /**
      * Loads the player creation and mode choosing process.
@@ -19,7 +26,21 @@ public class MapPIN {
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         screen.setTitle("MapPIN - Start");
         screen.setSize(600, 400);
-        screen.setLayout(null);
+        
+
+        mainMenu = new JPanel();
+        mainMenu.setOpaque(true);
+
+        
+        city = new JButton("CITY");
+        mainMenu.add(city);
+        country = new JButton("COUNTRY");
+        mainMenu.add(country);
+        quit = new JButton("FLAG");
+        mainMenu.add(quit);
+
+        screen.add(mainMenu);
+
         screen.setVisible(true);
         return "nothing yet";
     }
