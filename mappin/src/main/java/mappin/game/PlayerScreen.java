@@ -2,10 +2,8 @@ package mappin.game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-public class PlayerScreen extends JFrame implements MouseListener{
+public class PlayerScreen extends JFrame{
 
     JPanel topPanel;
     JPanel topSubPanel;
@@ -59,35 +57,8 @@ public class PlayerScreen extends JFrame implements MouseListener{
 
         worldMap = new ImagePanel();
         mainPanel.add(worldMap);
-        mainPanel.addMouseListener(this);
         
         this.add(mainPanel);
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        this.player.setGuess(e.getX(), e.getY());
-        this.worldMap.placePin(e.getX(), e.getY());
-        this.worldMap.repaint();
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        System.out.println("glhf");
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        System.out.println("the location is on the map, not outside");
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) { }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        this.player.setGuess(e.getX(), e.getY());  
-        this.worldMap.repaint();      
     }
 
     

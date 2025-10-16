@@ -1,13 +1,18 @@
 package mappin.game;
 
 import javax.swing.*;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class ImagePanel extends JPanel {
+public class ImagePanel extends JPanel  implements MouseListener {
 
     BufferedImage image;
     boolean pinPlaced;
@@ -18,6 +23,7 @@ public class ImagePanel extends JPanel {
         try {
             this.image = ImageIO.read(new File("mapPIN_final_game_map.png"));
             this.pinPlaced = false;
+            this.addMouseListener(this);
         } catch (IOException e) { }
 
     }
@@ -36,9 +42,9 @@ public class ImagePanel extends JPanel {
             pinXPoints[1] = pinX - pinWidth;
             pinXPoints[2] = pinX + pinWidth;
             int[] pinYPoints = new int[3];
-            pinYPoints[0] = pinY - (pinHeight / 2);
-            pinYPoints[1] = pinY - (pinHeight);
-            pinYPoints[2] = pinY - (pinHeight);
+            pinYPoints[0] = pinY;
+            pinYPoints[1] = pinY - pinHeight;
+            pinYPoints[2] = pinY - pinHeight;
             g.drawPolygon(pinXPoints, pinYPoints, 3);
 
         }
@@ -50,4 +56,28 @@ public class ImagePanel extends JPanel {
         this.relativePinY = (float) locationY / this.getHeight();
         System.out.println(locationX + " " + locationY + " " + this.relativePinX + " " + this.relativePinY);
     }
+
+    
+    @Override
+    public void mouseClicked(MouseEvent e) { }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        System.out.println("glhf");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        System.out.println("the location is on the map, not outside");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) { }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        this.placePin(e.getX(), e.getY());  
+        this.repaint();      
+    }
+
 }
