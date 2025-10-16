@@ -2,6 +2,7 @@ package mappin.game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 public class PlayerScreen extends JFrame{
 
@@ -35,8 +36,11 @@ public class PlayerScreen extends JFrame{
         quit = new JButton("Quit");
 
         name = new JLabel(player.name, JLabel.CENTER);
-
-        place = new JLabel("AFRICA", JLabel.CENTER);
+        
+        DBmanager testing = new DBmanager("jdbc:h2:./mappin;AUTO_SERVER=TRUE");
+        int cityID = new Random().nextInt(1, 94);
+        String city = testing.getCityById(cityID);
+        place = new JLabel(city, JLabel.CENTER);
 
         timer = new JLabel("00:15:00", JLabel.CENTER);
 
