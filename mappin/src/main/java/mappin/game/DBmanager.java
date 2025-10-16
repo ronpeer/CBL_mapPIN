@@ -85,20 +85,80 @@ public class DBmanager {
         }
     }
 
+    /**
+     * bla.
+     * @param city name of city to get coordinates for.
+     * @return array of floats representing coordinates.
+     */
     public float[] getCityLocation(String city) {
-        return null;
+        String query = "select latitude, longitude from cities where name='%s'".formatted(city);
+        ResultSet locationResult = executeQuery(query);
+        float[] coordinates = new float[2];
+        try {
+            locationResult.next();
+            coordinates[0] = locationResult.getFloat("latitude");
+            coordinates[1] = locationResult.getFloat("longitude");
+            return coordinates;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public float[] getountryColor(String country) {
-        return null;
+    /**
+     * bla.
+     * @param country country to find.
+     * @return int array of rgb color breakdown.
+     */
+    public int[] getountryColor(String country) {
+        String query = "select red, green, blue from country_colors where name='%s'";
+        query = query.formatted(country);
+        ResultSet colorResult = executeQuery(query);
+        int[] rgb = new int[3];
+        try {
+            colorResult.next();
+            rgb[0] = colorResult.getInt("red");
+            rgb[1] = colorResult.getInt("green");
+            rgb[2] = colorResult.getInt("blue");
+            return rgb;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
+    /**
+     * bla.
+     * @param id id chosen randomly.
+     * @return name of city.
+     */
     public String getCityById(Integer id) {
-        return null;
+        String query = "select name from cities where id='%s'".formatted(id);
+        ResultSet nameResult = executeQuery(query);
+        try {
+            nameResult.next();
+            return nameResult.getString("name");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
+    /**
+     * bla.
+     * @param id bla.
+     * @return bla.
+     */
     public String getCountryById(Integer id) {
-        return null;
+        String query = "select name from country_colors where id='%s'".formatted(id);
+        ResultSet nameResult = executeQuery(query);
+        try {
+            nameResult.next();
+            return nameResult.getString("name");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }
