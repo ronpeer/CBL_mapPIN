@@ -1,3 +1,5 @@
+package mappin.game;
+
 import javax.swing.*;
 import java.awt.*;
 

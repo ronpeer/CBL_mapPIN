@@ -1,3 +1,5 @@
+package mappin.game;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -7,22 +9,12 @@ import java.io.IOException;
 
 public class BackendMap {
 
-    static BufferedImage image;
+    BufferedImage image;
 
-    public static void backendMap() {
+    public Color getPixelColor(int x, int y) {
         try {
-            image = ImageIO.read(new File("mapPIN_final_game_map.png"));
+            this.image = ImageIO.read(new File("mapPIN/Assets/maps/mapPIN_colors.png"));
         } catch (IOException e) { }
-
-    }
-
-    public static Color getPixelColor(int x, int y) {
-        return new Color(image.getRGB(x,y), true);
-    }
-
-    public static void main(String[] args) {
-        backendMap();
-        System.out.println(getPixelColor(2550,1500).toString());
-    }
-    
+        return new Color(this.image.getRGB(x,y), true);
+    }    
 }

@@ -1,3 +1,7 @@
+package mappin.game;
+
+import java.awt.Color;
+
 public class Coordinate {
     int xCoordinate;
     int yCoordinate;
@@ -5,6 +9,7 @@ public class Coordinate {
     int yGameMapCoordinate;
     double longitude;
     double latitude;
+    Color color;
 
     Coordinate(int x, int y, String s) {
         if (s.equals("game")) {
@@ -22,6 +27,7 @@ public class Coordinate {
             this.longitude = this.xBackendMapToLongitude(this.xCoordinate);
             this.latitude = this.yBackendMapToLatitude(this.yCoordinate);
         }   
+        this.color = new BackendMap().getPixelColor(this.xCoordinate, this.yCoordinate);
     }
 
     Coordinate(double latitude, double longitude) {
@@ -31,6 +37,8 @@ public class Coordinate {
         this.yCoordinate = this.latitudeToYBackendMap(latitude);
         this.xGameMapCoordinate = xBackendMapToGameMap(this.xCoordinate); 
         this.yGameMapCoordinate = yBackendMapToGameMap(this.yCoordinate);
+
+        this.color = new BackendMap().getPixelColor(this.xCoordinate, this.yCoordinate);
     }
 
         public int xBackendMapToGameMap(int x) {
@@ -107,9 +115,45 @@ public class Coordinate {
         return Utility.earthAvgRadius * c;
     } 
 
-    public static void main(String[] args) {
-        Coordinate london = new Coordinate(51.509865, -0.118092);
-        Coordinate newyork = new Coordinate(40.730610, -73.935242);
-        System.out.println(london.distanceFrom(newyork));
+    public int distanceScore(double distance) {
+        return (int) Math.max(0, (5000 * (Math.exp(-1 * distance / Utility.maxDistanceToGetPoints) - Math.exp(-1)) / (1 - Math.exp(-1))));
+    }
+
+    public int timeScore(double time) {
+        return (int) Math.max(0, (5000 * (Math.exp(-1 * time / Utility.turnLengthInMiliseconds) - Math.exp(-1)) / (1 - Math.exp(-1))));
+    }
+
+    public int scoreGuessCity(int time, Coordinate guess) {
+        // overall score of 10000 - max 5000 from distance and 5000 from time
+        double distance = guess.distanceFrom(this);
+        int distanceScore = distanceScore(distance);
+        System.out.println("t" + time );
+        int timeScore = timeScore(time);
+                System.out.println(distanceScore + " time " + timeScore);
+
+        if (distanceScore > 0) {
+            return distanceScore + timeScore;
+        }
+        return distanceScore;
+    }
+
+    public boolean compareColors(Color a, Color b) {
+        if (Math.abs(a.getRed() - b.getRed()) > 10)
+            return false;
+        if (Math.abs(a.getGreen() - b.getGreen()) > 10)
+            return false;
+        if (Math.abs(a.getBlue() - b.getBlue()) > 10)
+            return false;
+        return true;
+    }
+
+    public int scoreGuessCountry(int time, Color countryColor) {
+        int timeScore = timeScore(time);
+        System.out.println(this.color.toString());
+        System.out.println(countryColor.toString() + "country");
+        int countryScore = this.compareColors(this.color, countryColor) ? 5000 : 0;
+        if (countryScore > 0)
+            return timeScore + countryScore;
+        return countryScore;
     }
 }

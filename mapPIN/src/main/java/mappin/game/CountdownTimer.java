@@ -1,20 +1,16 @@
+package mappin.game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class CountdownTimer {
+public class CountdownTimer extends Timer {
     int currentTimePassed;
     int delay;
-
-    ActionListener listener;
-    Timer timer;
+    boolean turnTimer; // true if it's a turn timer, false if for pause;
 
     CountdownTimer(int delay, ActionListener listener) {
-        this.currentTimePassed = 0;
-
-        this.listener = listener;
-        this.delay = delay;
-        timer = new Timer(this.delay, this.listener);
+        super(delay, listener);
     }
 
     public void updateValues() {

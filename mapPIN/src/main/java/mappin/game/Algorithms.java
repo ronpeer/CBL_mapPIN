@@ -1,3 +1,5 @@
+package mappin.game;
+
 public class Algorithms {
 
     // constants 

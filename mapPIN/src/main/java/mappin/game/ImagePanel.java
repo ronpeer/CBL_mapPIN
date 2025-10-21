@@ -1,5 +1,9 @@
+package mappin.game;
+
 import javax.swing.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -9,12 +13,14 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class ImagePanel extends JPanel implements MouseListener{
+public class ImagePanel extends JPanel implements MouseListener {
 
     BufferedImage image;
     boolean pinPlaced;
     float relativePinX;
     float relativePinY;
+    int currentTimePassed;
+    int timeOfGuess;
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -34,7 +40,6 @@ public class ImagePanel extends JPanel implements MouseListener{
             pinYPoints[1] = pinY - pinHeight;
             pinYPoints[2] = pinY - pinHeight;
             g.drawPolygon(pinXPoints, pinYPoints, 3);
-
         }
     }
 
@@ -47,28 +52,30 @@ public class ImagePanel extends JPanel implements MouseListener{
 
     public ImagePanel() {
         try {
-            this.image = ImageIO.read(new File("mapPIN_final_game_map.png"));
-            this.pinPlaced = false;
-            this.addMouseListener(this);
+            this.image = ImageIO.read(new File("mapPIN/Assets/maps/mapPIN_final_game_map.png"));
         } catch (IOException e) { }
+        this.pinPlaced = false;
+        this.addMouseListener(this);
+        this.currentTimePassed = 0;
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println("dgr");
-     }
+    }
 
     public void mouseEntered(MouseEvent e) {
-        System.out.println("glhf");
     }
 
     public void mouseExited(MouseEvent e) {
-        System.out.println("the location is on the map, not outside");
     }
 
     public void mousePressed(MouseEvent e) { }
 
     public void mouseReleased(MouseEvent e) {
-        this.placePin(e.getX(), e.getY());  
-        this.repaint();      
+        if (!pinPlaced) {
+            this.placePin(e.getX(), e.getY());  
+            this.repaint();      
+            this.timeOfGuess = currentTimePassed;
+            System.out.println(timeOfGuess);
+        }
     }
 }

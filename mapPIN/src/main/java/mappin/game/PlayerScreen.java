@@ -1,9 +1,12 @@
+package mappin.game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class PlayerScreen extends JFrame{
+public class PlayerScreen extends JFrame {
 
     JPanel topPanel;
     JPanel topSubPanel;
@@ -73,21 +76,31 @@ public class PlayerScreen extends JFrame{
         this.place.setText(place);
     }
 
-    public void addScore() {
-        this.scoreJLabel.setText("1000");
-        super.repaint();
-    }
-
     public void resetScore() {
         this.scoreJLabel.setText("");
         super.repaint();
     }
 
-    public void resetPlayer() {
+    public void updatePlayer() {
         this.name.setText(this.player.name);
         this.topPanel.setBackground(player.color);
         this.mainPanel.setBackground(player.color);
+        this.scoreJLabel.setText("");
+    }
 
-        super.repaint();
+    public void calculateScore() {
+        // Coordinate place = new Coordinate(0, 0);
+        // Coordinate guess = new Coordinate((int) (this.worldMap.relativePinX * Utility.gameMapWidth),
+        //                                 (int) (this.worldMap.relativePinY * Utility.gameMapHeight),
+        //                                 "game");
+        // int score = place.scoreGuessCity(this.worldMap.timeOfGuess, guess);
+        // this.scoreJLabel.setText("" + score);
+        // this.player.scores.add(score);
+        Coordinate guess = new Coordinate((int) (this.worldMap.relativePinX * Utility.gameMapWidth),
+                                        (int) (this.worldMap.relativePinY * Utility.gameMapHeight),
+                                        "game");
+        int score = guess.scoreGuessCountry(this.worldMap.timeOfGuess, new Color(160, 60, 60));
+        this.scoreJLabel.setText("" + score);
+        this.player.scores.add(score);
     }
 }
