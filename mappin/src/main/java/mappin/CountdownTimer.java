@@ -1,8 +1,7 @@
 package mappin;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class CountdownTimer {
     int currentTimePassed;
@@ -23,7 +22,7 @@ public class CountdownTimer {
         this.currentTimePassed += this.delay;
     }
 
-    public void resetTimer () {
+    public void resetTimer() {
         this.currentTimePassed = 0;
     }
 }

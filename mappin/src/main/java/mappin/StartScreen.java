@@ -11,6 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+/**
+ * a class for the starting screen of theg game. 
+ * the user will input the player names into this screen.
+ * after which they will press the start button to start the game itself.
+ */
 public class StartScreen  extends JFrame {
 
     JPanel topPanel;
@@ -21,6 +26,14 @@ public class StartScreen  extends JFrame {
     String player1Name;
     String player2Name;
 
+    /**
+     * class constructor.
+     * it generates the jframe values and the included panels. 
+     * the top panel contains a welcome message.
+     * the middle panel contains the text fields for name input.
+     * the bottom panel contains a button which once pressed will 
+     * capture the given player names and set the buttonPressed boolean to true.
+     */
     StartScreen() {
         super();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,6 +77,12 @@ public class StartScreen  extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * retrieve names of players.
+     * when this is pressed the game should start,
+     * which means this screen should no longer be visable.
+     * @return an array of all player names.
+     */
     public String[] getPlayerNames() {
         String[] playerNames = new String[2];
         playerNames[0] = player1Name;

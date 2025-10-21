@@ -14,7 +14,9 @@ public class MapPIN {
         while (!start.buttonPressed) {
             try {
                 Thread.sleep(500);
-            } catch (InterruptedException e) { }
+            } catch (InterruptedException e) { 
+                System.out.println("Sleep inturrupted, will continue to gameplay");
+            }
             
         }
         String[] playerNames = start.getPlayerNames();
