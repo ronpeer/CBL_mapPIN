@@ -35,12 +35,14 @@ public class StartScreen  extends JFrame {
      * capture the given player names and set the buttonPressed boolean to true.
      */
     StartScreen() {
+        // General frame construction
         super();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Start");
         this.setSize(1000, 500);
         this.buttonPressed = false;
 
+        // Top panel - welcome text
         this.topPanel = new JPanel();
         this.topPanel.setBackground(Color.WHITE);
         this.topPanel.setOpaque(true);
@@ -49,6 +51,7 @@ public class StartScreen  extends JFrame {
         this.topPanel.add(gameName);
         this.add(topPanel, BorderLayout.NORTH);
         
+        // Middle panel - Player name entry
         this.midPanel = new JPanel();
         this.midPanel.setOpaque(true);
         JTextArea name1Entry = new JTextArea("Player1");
@@ -59,6 +62,7 @@ public class StartScreen  extends JFrame {
         this.midPanel.add(name2Entry);
         this.add(midPanel);
 
+        // Bottom panel - Start game button
         this.bottomPanel = new JPanel();
         ActionListener textInput = new ActionListener() {
         
