@@ -1,10 +1,9 @@
-package mappin.game;
+package mappin;
 
 import javax.swing.*;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -12,21 +11,12 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class ImagePanel extends JPanel  implements MouseListener {
+public class ImagePanel extends JPanel implements MouseListener{
 
     BufferedImage image;
     boolean pinPlaced;
     float relativePinX;
     float relativePinY;
-
-    public ImagePanel() {
-        try {
-            this.image = ImageIO.read(new File("mapPIN_final_game_map.png"));
-            this.pinPlaced = false;
-            this.addMouseListener(this);
-        } catch (IOException e) { }
-
-    }
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -57,27 +47,31 @@ public class ImagePanel extends JPanel  implements MouseListener {
         System.out.println(locationX + " " + locationY + " " + this.relativePinX + " " + this.relativePinY);
     }
 
-    
-    @Override
-    public void mouseClicked(MouseEvent e) { }
+    public ImagePanel() {
+        try {
+            File gamemap = new File("mapPIN_final_game_map.png");
+            this.image = ImageIO.read(gamemap);
+            this.pinPlaced = false;
+            this.addMouseListener(this);
+        } catch (IOException e) { e.printStackTrace();}
+    }
 
-    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.println("dgr");
+     }
+
     public void mouseEntered(MouseEvent e) {
         System.out.println("glhf");
     }
 
-    @Override
     public void mouseExited(MouseEvent e) {
         System.out.println("the location is on the map, not outside");
     }
 
-    @Override
     public void mousePressed(MouseEvent e) { }
 
-    @Override
     public void mouseReleased(MouseEvent e) {
         this.placePin(e.getX(), e.getY());  
         this.repaint();      
     }
-
 }

@@ -1,4 +1,4 @@
-package mappin.game;
+package mappin;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,6 +23,7 @@ public class DBmanager {
         try {
             this.connection = DriverManager.getConnection(connectionUrl);
             this.statement = connection.createStatement();   
+            System.out.println(this.connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }

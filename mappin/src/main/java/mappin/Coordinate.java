@@ -1,4 +1,4 @@
-package mappin.game;
+package mappin;
 
 public class Coordinate {
     int xCoordinate;
