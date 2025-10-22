@@ -13,4 +13,12 @@ public class Player {
         this.color = color;
         this.scores = new ArrayList();
     }
+
+    public int sumScores() {
+        int sum = 0;
+        for (int i = 0; i < this.scores.size(); i++) {
+            sum += this.scores.get(i);
+        }
+        return sum;
+    }
 }

@@ -1,5 +1,6 @@
-package mappin;
+package mappin.game;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -91,15 +92,14 @@ public class DBmanager {
      * @param city name of city to get coordinates for.
      * @return array of floats representing coordinates.
      */
-    public float[] getCityLocation(String city) {
+    public Coordinate getCityLocation(String city) {
         String query = "select latitude, longitude from cities where name='%s'".formatted(city);
         ResultSet locationResult = executeQuery(query);
-        float[] coordinates = new float[2];
         try {
             locationResult.next();
-            coordinates[0] = locationResult.getFloat("latitude");
-            coordinates[1] = locationResult.getFloat("longitude");
-            return coordinates;
+            float latitude = locationResult.getFloat("latitude");
+            float longitude = locationResult.getFloat("longitude");
+            return new Coordinate(latitude, longitude);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -111,17 +111,16 @@ public class DBmanager {
      * @param country country to find.
      * @return int array of rgb color breakdown.
      */
-    public int[] getountryColor(String country) {
+    public Color getCountryColor(String country) {
         String query = "select red, green, blue from country_colors where name='%s'";
         query = query.formatted(country);
         ResultSet colorResult = executeQuery(query);
-        int[] rgb = new int[3];
         try {
             colorResult.next();
-            rgb[0] = colorResult.getInt("red");
-            rgb[1] = colorResult.getInt("green");
-            rgb[2] = colorResult.getInt("blue");
-            return rgb;
+            int red = colorResult.getInt("red");
+            int green = colorResult.getInt("green");
+            int blue = colorResult.getInt("blue");
+            return new Color(red, green, blue);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

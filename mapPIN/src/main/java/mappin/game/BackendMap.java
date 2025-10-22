@@ -13,7 +13,7 @@ public class BackendMap {
 
     public Color getPixelColor(int x, int y) {
         try {
-            this.image = ImageIO.read(new File("mapPIN/Assets/maps/mapPIN_colors.png"));
+            this.image = ImageIO.read(new File("Assets/maps/mapPIN_colors.png"));
         } catch (IOException e) { }
         return new Color(this.image.getRGB(x,y), true);
     }    

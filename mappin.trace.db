@@ -1,0 +1,81 @@
+2025-10-20 12:12:57.673553+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='27' [42104-240]
+2025-10-20 12:13:21.051525+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='91' [42104-240]
+2025-10-20 12:13:21.068287+02:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='61' [42104-240]
+2025-10-20 12:31:46.781540+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='93' [42104-240]
+2025-10-20 12:31:46.799620+02:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='52' [42104-240]
+2025-10-20 12:38:27.655772+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='50' [42104-240]
+2025-10-20 12:38:44.613254+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='66' [42104-240]
+2025-10-20 12:53:53.761036+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='90' [42104-240]
+2025-10-21 18:31:33.891807+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='52' [42104-240]
+2025-10-21 18:31:43.657347+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='1' [42104-240]
+2025-10-21 18:32:35.669662+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='56' [42104-240]
+2025-10-21 21:36:25.652896+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='64' [42104-240]
+2025-10-21 21:36:32.401508+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='13' [42104-240]
+2025-10-21 21:42:56.460593+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='74' [42104-240]
+2025-10-21 21:47:08.049266+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='48' [42104-240]
+2025-10-21 21:47:21.346517+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='41' [42104-240]
+2025-10-21 21:47:49.635661+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='36' [42104-240]
+2025-10-21 21:53:18.133670+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='91' [42104-240]
+2025-10-21 21:54:40.432074+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='6' [42104-240]
+2025-10-21 21:55:12.900930+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='68' [42104-240]
+2025-10-21 21:57:32.730535+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='4' [42104-240]
+2025-10-21 21:58:23.417681+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='52' [42104-240]
+2025-10-21 21:58:34.785615+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='55' [42104-240]
+2025-10-21 21:58:45.233375+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='62' [42104-240]
+2025-10-21 21:59:52.679505+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='7' [42104-240]
+2025-10-21 22:03:18.539293+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='41' [42104-240]
+2025-10-21 22:08:51.784339+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CITIES" not found (this database is empty); SQL statement:
+select name from cities where id='55' [42104-240]

@@ -52,7 +52,7 @@ public class ImagePanel extends JPanel implements MouseListener {
 
     public ImagePanel() {
         try {
-            this.image = ImageIO.read(new File("mapPIN/Assets/maps/mapPIN_final_game_map.png"));
+            this.image = ImageIO.read(new File("Assets/maps/mapPIN_final_game_map.png"));
         } catch (IOException e) { }
         this.pinPlaced = false;
         this.addMouseListener(this);

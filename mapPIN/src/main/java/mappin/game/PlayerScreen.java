@@ -16,6 +16,7 @@ public class PlayerScreen extends JFrame {
     CustomLabel scoreJLabel;
     CustomLabel name;
     CustomLabel place;   
+    Coordinate placeCoordinate;
     Player player;
 
     PlayerScreen(Player player) {
@@ -23,6 +24,7 @@ public class PlayerScreen extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("MapPIN");
         this.setSize(1000, 500);
+        this.player = new Player("", Color.BLACK);
         this.player = player;
 
         topPanel = new JPanel();
@@ -38,7 +40,7 @@ public class PlayerScreen extends JFrame {
 
         this.name = new CustomLabel(player.name, 20);
 
-        place = new CustomLabel("AFRICA", 20);
+        place = new CustomLabel("", 20);
 
         scoreJLabel = new CustomLabel("", 20);
 
@@ -88,18 +90,21 @@ public class PlayerScreen extends JFrame {
         this.scoreJLabel.setText("");
     }
 
-    public void calculateScore() {
-        // Coordinate place = new Coordinate(0, 0);
-        // Coordinate guess = new Coordinate((int) (this.worldMap.relativePinX * Utility.gameMapWidth),
-        //                                 (int) (this.worldMap.relativePinY * Utility.gameMapHeight),
-        //                                 "game");
-        // int score = place.scoreGuessCity(this.worldMap.timeOfGuess, guess);
-        // this.scoreJLabel.setText("" + score);
-        // this.player.scores.add(score);
+    public void calculateScoreCity() {
         Coordinate guess = new Coordinate((int) (this.worldMap.relativePinX * Utility.gameMapWidth),
                                         (int) (this.worldMap.relativePinY * Utility.gameMapHeight),
                                         "game");
-        int score = guess.scoreGuessCountry(this.worldMap.timeOfGuess, new Color(160, 60, 60));
+        int score = placeCoordinate.scoreGuessCity(this.worldMap.timeOfGuess, guess);
+        this.scoreJLabel.setText("" + score);
+        this.player.scores.add(score);
+        System.out.println(player.name + " " + player.sumScores());
+    }
+
+        public void calculateScoreCountry(Color color) {
+        Coordinate guess = new Coordinate((int) (this.worldMap.relativePinX * Utility.gameMapWidth),
+                                        (int) (this.worldMap.relativePinY * Utility.gameMapHeight),
+                                        "game");
+        int score = guess.scoreGuessCountry(this.worldMap.timeOfGuess, color);
         this.scoreJLabel.setText("" + score);
         this.player.scores.add(score);
     }
