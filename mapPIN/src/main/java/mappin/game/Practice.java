@@ -1,7 +1,10 @@
 package mappin.game;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.*;
-import java.awt.*;
+
 
 public class Practice {
     public static void main(String[] args) {

@@ -87,26 +87,6 @@ public class Algorithms {
         // using the winkel-tripel projection (inverted) with an error adjustment constant of 0.99545
         return (Math.atan(Math.exp((3004 - y) / ((4750/Math.PI) * 1.25))) - Math.PI / 4) / (0.4 * mapProjectionErrorAdjusment * Math.PI / 180);
     }
-
-    public static void main(String[] args) {
-        Algorithms a = new Algorithms();
-        // System.out.println(a.xGameMapToBackendMap(1582));
-        // System.out.println(a.xBackendMapToGameMap(5141));
-        // System.out.println(a.xGameMapToBackendMap(2423) + "" + a.yGameMapToBackendMap(1760));
-        // System.out.println(a.yLongLatToBackendMap(67.0164819409626));
-        // System.out.println(a.xLongLatToBackendMap(-174.966666926642));
-        // System.out.println(a.xBackendMapToLongLat(5669));
-        // System.out.println(a.yBackendMapToLongLat(2109));
-        // Coordinate city = new Coordinate(1582, 5141);
-
-        Coordinate london = new Coordinate(51.509865, -0.118092);
-        Coordinate newyork = new Coordinate(40.730610, -73.935242);
-        Coordinate boston = new Coordinate(42.361145, -71.057083);
-        Coordinate rome = new Coordinate( 41.902782, 12.496366);
-        Coordinate guess = new Coordinate(1186, 1841, "game");
-        System.out.println(a.scoreCity(10000, rome, guess));
-
-    }
 }
 
 

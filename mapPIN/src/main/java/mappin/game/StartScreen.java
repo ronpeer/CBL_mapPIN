@@ -2,14 +2,11 @@ package mappin.game;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -83,13 +80,12 @@ public class StartScreen  extends JFrame {
         this.bottomPanel = new JPanel();
         ActionListener textInput = new ActionListener() {
         
-        @Override
+            @Override
         public void actionPerformed(ActionEvent e) {
                 player1Name = name1Entry.getText();
                 player2Name = name2Entry.getText();
                 buttonPressed = true;
-                if (countryRadio.isSelected())
-                {
+                if (countryRadio.isSelected()) {
                     cityMode = false;
                 }
             }

@@ -152,8 +152,9 @@ public class Coordinate {
         System.out.println(this.color.toString());
         System.out.println(countryColor.toString() + "country");
         int countryScore = this.compareColors(this.color, countryColor) ? 5000 : 0;
-        if (countryScore > 0)
+        if (countryScore > 0) {
             return timeScore + countryScore;
+        }
         return countryScore;
     }
 }

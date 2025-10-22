@@ -1,10 +1,10 @@
 package mappin.game;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class PlayerScreen extends JFrame {
 
@@ -71,7 +71,7 @@ public class PlayerScreen extends JFrame {
         int currentTimeRemained = Utility.turnLengthInMiliseconds - currentTimePassed;
         int secondsLeft = currentTimeRemained / 1000;
         int milisecondsLeft = currentTimeRemained % 1000;
-        this.timerLabel.setText("00:"+"0".repeat(Math.max(0,1 - secondsLeft / 10))+ secondsLeft + ":" + "0".repeat(Math.max(0, 1 - milisecondsLeft / 100))+ milisecondsLeft / 10);
+        this.timerLabel.setText("00:" + "0".repeat(Math.max(0, 1 - secondsLeft / 10)) + secondsLeft + ":" + "0".repeat(Math.max(0, 1 - milisecondsLeft / 100)) + milisecondsLeft / 10);
     }
 
     public void changePlace(String place) {
@@ -100,7 +100,7 @@ public class PlayerScreen extends JFrame {
         System.out.println(player.name + " " + player.sumScores());
     }
 
-        public void calculateScoreCountry(Color color) {
+    public void calculateScoreCountry(Color color) {
         Coordinate guess = new Coordinate((int) (this.worldMap.relativePinX * Utility.gameMapWidth),
                                         (int) (this.worldMap.relativePinY * Utility.gameMapHeight),
                                         "game");

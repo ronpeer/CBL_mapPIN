@@ -3,15 +3,11 @@ package mappin.game;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-
-import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
 
-public class EndScreen extends JFrame{
+public class EndScreen extends JFrame {
 
     JPanel topPanel;
     JPanel midPanel;
@@ -38,7 +34,7 @@ public class EndScreen extends JFrame{
         this.midPanel = new JPanel();
         this.midPanel.setOpaque(true);
         CustomLabel player1Score = new CustomLabel(player1.name + ": " + player1.sumScores(), 15);
-        CustomLabel player2Score = new CustomLabel(player1.name + ": " + player1.sumScores(), 15);
+        CustomLabel player2Score = new CustomLabel(player2.name + ": " + player2.sumScores(), 15);
 
         this.midPanel.add(player1Score);
         this.midPanel.add(new JLabel());

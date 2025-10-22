@@ -1,7 +1,7 @@
 package mappin.game;
 
+import java.awt.Font;
 import javax.swing.*;
-import java.awt.*;
 
 public class CustomLabel extends JLabel {
 

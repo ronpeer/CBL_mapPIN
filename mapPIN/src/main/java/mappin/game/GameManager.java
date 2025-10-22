@@ -1,15 +1,9 @@
 package mappin.game;
 
-import java.awt.*;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.util.Random;
-
-import javax.swing.*;
-import javax.swing.border.Border;
-
-import org.w3c.dom.events.MouseEvent;
 
 public class GameManager implements ActionListener {
     Player player1;
@@ -84,12 +78,11 @@ public class GameManager implements ActionListener {
         
     public void actionPerformed(ActionEvent e) {
         if (this.timer.turnTimer) {
-            if (this.timer.currentTimePassed < Utility.turnLengthInMiliseconds &&! this.currentGame.worldMap.pinPlaced) {
+            if (this.timer.currentTimePassed < Utility.turnLengthInMiliseconds && !this.currentGame.worldMap.pinPlaced) {
                 this.timer.currentTimePassed += 10;
                 this.currentGame.updateTimerLabel(this.timer.currentTimePassed);
                 this.currentGame.worldMap.currentTimePassed = this.timer.currentTimePassed;
-            }
-            else {
+            } else {
                 timer.stop();
                 if (cityMode) {
                     this.currentGame.calculateScoreCity();
@@ -103,8 +96,7 @@ public class GameManager implements ActionListener {
         } else {
             if (this.timer.currentTimePassed < Utility.pauseLengthInMiliseconds) {
                 this.timer.currentTimePassed += 10;
-            }
-            else {
+            } else {
                 this.timer.stop();
                 this.timer.currentTimePassed = 0;
                 if (turnCounter < Utility.turnsPerPlayer) {
