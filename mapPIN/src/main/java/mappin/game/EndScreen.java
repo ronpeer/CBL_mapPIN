@@ -3,29 +3,39 @@ package mappin.game;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-
-import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
 
-public class EndScreen extends JFrame{
+/**
+ * A class to represent the ending screen of the game
+ * made up of 2 panels, 
+ * the top shows Game over text.
+ * the bottom panel shows each players name and scores.
+ * this is the final screen of the game.
+ * from here no new code will be executed, and in order to close the screen click the X button.
+ */
+public class EndScreen extends JFrame {
 
     JPanel topPanel;
-    JPanel midPanel;
     JPanel bottomPanel;
     
+    /**
+     * End screen constructor.
+     * it sets the values for the end screen Jframe,
+     * then sets the values for both panels as described above.
+     * @param player1 player object, containing player name and list of scores.
+     * @param player2 player object, containing player name and list of scores.
+     */
     public EndScreen(Player player1, Player player2) {
         super();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Start");
+        this.setTitle("Final Scores");
         this.setSize(1000, 500);
 
 
-        // Top panel - welcome text
+        // Top panel - Final score text
         this.topPanel = new JPanel();
         this.topPanel.setBackground(Color.WHITE);
         this.topPanel.setOpaque(true);
@@ -34,16 +44,16 @@ public class EndScreen extends JFrame{
         this.topPanel.add(gameName);
         this.add(topPanel, BorderLayout.NORTH);
         
-        // Middle panel - Player name entry
-        this.midPanel = new JPanel();
-        this.midPanel.setOpaque(true);
+        // Middle panel - Player Score showcase
+        this.bottomPanel = new JPanel();
+        this.bottomPanel.setOpaque(true);
         CustomLabel player1Score = new CustomLabel(player1.name + ": " + player1.sumScores(), 15);
         CustomLabel player2Score = new CustomLabel(player2.name + ": " + player2.sumScores(), 15);
 
-        this.midPanel.add(player1Score);
-        this.midPanel.add(new JLabel());
-        this.midPanel.add(player2Score);
-        this.add(midPanel);
+        this.bottomPanel.add(player1Score);
+        this.bottomPanel.add(new JLabel());
+        this.bottomPanel.add(player2Score);
+        this.add(bottomPanel);
 
         this.setVisible(true);
     }
