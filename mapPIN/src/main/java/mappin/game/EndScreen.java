@@ -38,7 +38,7 @@ public class EndScreen extends JFrame{
         this.midPanel = new JPanel();
         this.midPanel.setOpaque(true);
         CustomLabel player1Score = new CustomLabel(player1.name + ": " + player1.sumScores(), 15);
-        CustomLabel player2Score = new CustomLabel(player1.name + ": " + player1.sumScores(), 15);
+        CustomLabel player2Score = new CustomLabel(player2.name + ": " + player2.sumScores(), 15);
 
         this.midPanel.add(player1Score);
         this.midPanel.add(new JLabel());
