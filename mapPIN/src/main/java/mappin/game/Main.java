@@ -1,15 +1,28 @@
 package mappin.game;
 
-// IMPORTS HERE 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.*;
-import javax.swing.border.Border;
+import java.awt.Color;
 
 /**
- * Text.
+ * WELCOME TO THE MAPPIN GAME.
+ * in this game, 2 players compete to check their geographical knowlege of europe and asia.
+ * players can enter their names, and choose from one of two modes, city mode and country mode.
+ * in city mode, each player guesses the location of a given city on a map.
+ * you have 30 seconds to do so.
+ * once they click a location, it is pointed with a pin, and their score is calculated. 
+ * their score is a mixed calculation of distance to the actual city, and time it took to guess.
+ * each player has 3 guesses, and once the game is over, the scores of both players will be shown.
+ * in country mode, each player guesses the location of a country on the given map.
+ * you have 30 seconds to do so.
+ * once they click a location, if you clicked on a location inside the country, 
+ * youll be given a score based on how long the guess took. 
+ * if you click on a location outside the country, no points for you.
+ * after each player has 3 guesses, the ending screen showcases the sum of each players points.
+ * 
+ * Note:
+ * the first click picks a location, and once one is chosen it cannot be changed.
+ * SO BE CAREFULL!
+ * 
+ * Good luck, and have fun :)
  */
 public class Main { 
 
@@ -38,6 +51,6 @@ public class Main {
             }
         }
         gameManager.currentGame.setVisible(false);
-        EndScreen endScreen = new EndScreen(player1, player2);
+        new EndScreen(player1, player2);
     }
 }
