@@ -2,22 +2,23 @@ package mappin.game;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 
 /**
- * a class for the starting screen of theg game. 
- * the user will input the player names into this screen.
+ * a class representing the starting screen of the game.
+ * The frame is comprised of 3 panels, elaborated on in the constructor. 
+ * the user will input the player names into this screen,
+ * as well as select a mode to play - city mode or country mode.
+ * (For more info on the modes read the documentation on Main.java)
  * after which they will press the start button to start the game itself.
+ * default names are Player1 and Player2, and have to be changed manually.
  */
 public class StartScreen  extends JFrame {
 
@@ -36,9 +37,10 @@ public class StartScreen  extends JFrame {
      * class constructor.
      * it generates the jframe values and the included panels. 
      * the top panel contains a welcome message.
-     * the middle panel contains the text fields for name input.
+     * the middle panel contains the text fields for name input,
+     * as well as buttons to select which mode to play - City or Country.
      * the bottom panel contains a button which once pressed will 
-     * capture the given player names and set the buttonPressed boolean to true.
+     * capture the given player names, selected mode, and set the buttonPressed boolean to true.
      */
     StartScreen() {
         // General frame construction
@@ -64,11 +66,9 @@ public class StartScreen  extends JFrame {
         name1Entry.setToolTipText("Enter Player name");
         JTextArea name2Entry = new JTextArea("Player2");
         name1Entry.setToolTipText("Enter Player name");
-        this.cityRadio = new JRadioButton();
-        this.cityRadio.setLabel("City Mode");
+        this.cityRadio = new JRadioButton("City Mode");
         this.cityRadio.setSelected(true);
-        this.countryRadio = new JRadioButton();
-        this.countryRadio.setLabel("Country Mode");
+        this.countryRadio = new JRadioButton("Country Mode");
         ButtonGroup modeSelection = new ButtonGroup();
         modeSelection.add(cityRadio);
         modeSelection.add(countryRadio);
@@ -83,13 +83,12 @@ public class StartScreen  extends JFrame {
         this.bottomPanel = new JPanel();
         ActionListener textInput = new ActionListener() {
         
-        @Override
+            @Override
         public void actionPerformed(ActionEvent e) {
                 player1Name = name1Entry.getText();
                 player2Name = name2Entry.getText();
                 buttonPressed = true;
-                if (countryRadio.isSelected())
-                {
+                if (countryRadio.isSelected()) {
                     cityMode = false;
                 }
             }
@@ -116,6 +115,10 @@ public class StartScreen  extends JFrame {
         return playerNames; 
     }
 
+    /**
+     * used to check if the start button was pressed.
+     * @return boolean representing the satate of the start button.
+     */
     public boolean getButtonState() {
         return this.buttonPressed;
     }
