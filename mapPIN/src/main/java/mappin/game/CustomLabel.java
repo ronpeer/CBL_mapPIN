@@ -1,7 +1,8 @@
 package mappin.game;
 
 import java.awt.Font;
-import javax.swing.*;
+import javax.swing.JLabel;
+
 
 /**
  * A class for a custom Jlabel with non default text and fontsize.
