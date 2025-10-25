@@ -13,6 +13,7 @@ https://www.w3schools.com/git/
 
 ## Swing + awt - events and GUI
 
+https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html#flow
 
 ## Databases and file managment
 
