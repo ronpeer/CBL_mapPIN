@@ -38,6 +38,14 @@ https://www.w3schools.com/git/
 
 https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html#flow
 
+## Resources for implementation of the distance/country recognition algorithms
+
+https://en.wikipedia.org/wiki/Miller_cylindrical_projection - conversion between latitude-longitude to coordinates on a 2D map
+
+https://en.wikipedia.org/wiki/Haversine_formula - distance formula between 2 lat-long coordinate on earth
+
+https://www.mapchart.net/world-advanced.html - world map (painted every country in a different color)
+
 ## Databases and file managment
 
 https://www.youtube.com/watch?v=03rDqI6lxdI - JDBC Tutorial for Beginners
