@@ -144,8 +144,7 @@ public class Coordinate {
      * @return corresponding backend map y coordinate
      */
     public int latitudeToYBackendMap(double latitude) {
-        return (int) Math.round(3004 - (4750 / Math.PI) * 1.25 * Math.log(Math.tan(
-                Math.PI / 4 + 0.4 * Utility.mapProjectionErrorAdjusment * latitude * Math.PI / 180)));
+        return (int) Math.round(3004 - (4750 / Math.PI) * 1.25 * Math.log(Math.tan(Math.PI / 4 + 0.4 * Utility.mapProjectionErrorAdjusment * latitude * Math.PI / 180)));
     }
     
     /**
