@@ -1,11 +1,12 @@
 package mappin.game;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  * A class responsible for the main game JFrame graphics.
@@ -28,9 +29,10 @@ public class PlayerScreen extends JFrame {
     Coordinate placeCoordinate;
 
     /**
-     * Consturctor - generates a window with the 2 described panels. Initalizes player name based on input and
+     * Consturctor - generates a window with the 2 described panels. 
+     * Initalizes player name based on input and
      * the timer label. Creates the ImagePanel object that is the mouse listener world map.
-     * @param player
+     * @param player the player object of the current turn.
      */
     PlayerScreen(Player player) {
         super();
@@ -78,21 +80,24 @@ public class PlayerScreen extends JFrame {
     }
 
     /**
-     * Receives the time passed since the start of the turn and updats the timer label with
-     * the remaining time for the turn
-     * @param currentTimePassed
+     * Receives the time passed since the start of the turn.
+     * Updats the timer label with the remaining time for the turn
+     * timer displays both seconds and miliseconds left.
+     * @param currentTimePassed amount of time passed since start of turn.
      */
     public void updateTimerLabel(int currentTimePassed) {
         int currentTimeRemained = Utility.turnLengthInMiliseconds - currentTimePassed;
         int secondsLeft = currentTimeRemained / 1000;
-        int milisecondsLeft = currentTimeRemained % 1000;
-        this.timerLabel.setText("00:"+"0".repeat(Math.max(0,1 - secondsLeft / 10))+ secondsLeft + ":" + "0".repeat(Math.max(0, 1 - milisecondsLeft / 100))+ milisecondsLeft / 10);
+        int mlsecondsLeft = currentTimeRemained % 1000;
+        String strSecondsLeft = "0".repeat(Math.max(0, 1 - secondsLeft / 10)) + secondsLeft;
+        String mlSecsLeft = "0".repeat(Math.max(0, 1 - mlsecondsLeft / 100)) + (mlsecondsLeft / 10);
+        this.timerLabel.setText("00:" + strSecondsLeft + ":" + mlSecsLeft);
     }
 
     /**
-     * Receices a player's object and updates the JFrame background color and player's name to match.
+     * updates the JFrame background color and player's name to match.
      * Reinitializes the score label.
-     * @param player
+     * @param player the player object of the current turn. 
      */  
     public void updatePlayer(Player player) {
         this.name.setText(player.name);

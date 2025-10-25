@@ -1,17 +1,13 @@
 package mappin.game;
 
-import javax.swing.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 /**
  * A class responsible for the game map JPanel of the window. It presents the map, tracks the mouse 
@@ -24,25 +20,28 @@ public class ImagePanel extends JPanel implements MouseListener {
     boolean pinPlaced;
     float relativePinX;
     float relativePinY;
-    int currentTimePassed; // current time passed in the turn - used to track time (updated from outside of object)
+    // current time passed in turn - tracks time (updated from outside of object)
+    int currentTimePassed; 
     int timeOfGuess;
     
     /**
-     * Constructor - reads the map image file from the folder, initializes instance variables and implements the 
-     * mouse listening.
+     * Constructor - loads the map image file from the folder, 
+     * initializes instance variables and implements the mouse listener.
      */
     public ImagePanel() {
         try {
             this.image = ImageIO.read(new File("Assets/maps/mapPIN_final_game_map.png"));
-        } catch (IOException e) { }
+        } catch (IOException e) { 
+            System.out.println("Image failed to load"); 
+        }
         this.pinPlaced = false;
         this.addMouseListener(this);
         this.currentTimePassed = 0;
     }
 
     /**
-     * Overriding the paintComponent method to paint the map image, as well as the pin triangle
-     * @param g graphics object
+     * Overriding the paintComponent method to paint the map image, as well as the pin triangle.
+     * @param g graphics object, allowing to paint on the JPanel.
      */
     @Override
     protected void paintComponent(Graphics g) {
@@ -68,10 +67,11 @@ public class ImagePanel extends JPanel implements MouseListener {
     }
 
     /**
-     * Receives the xy coordinates of the pin (mouse click) and updates the relative location to the image.
+     * Receives the xy coordinates of the pin (mouse click).
+     * updates the relative location to the image, based on map size.
      * Updates pinPlaced boolean to true.
-     * @param locationX
-     * @param locationY
+     * @param locationX x location of click on screen (int)
+     * @param locationY y location of click on screen (int)
      */
     public void placePin(int locationX, int locationY) {
         this.pinPlaced = true;
@@ -91,9 +91,10 @@ public class ImagePanel extends JPanel implements MouseListener {
     public void mousePressed(MouseEvent e) { }
 
     /**
-     * Implements MouseListener - when a mouse is released (long/short click or drag - final location matters) 
-     * and a pin hasn't been placed yet, calls to paint the pin on the the mouse's location. Updates the timeOfGuess
-     * to be the time where the mouse was released.
+     * Implements MouseListener - when a mouse is released 
+     * (long/short click or drag - final location matters) 
+     * and a pin hasn't been placed yet,  calls to paint the pin on the the mouse's location. 
+     * Updates the timeOfGuess to be the time where the mouse was released.
      */
     public void mouseReleased(MouseEvent e) {
         if (!pinPlaced) {
