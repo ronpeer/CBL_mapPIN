@@ -6,6 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
+/**
+ * A class responsible for the main game JFrame graphics.
+ * Made up of 2 panels.
+ * The top shows the player's name, place to find, score, and time left for the turn.
+ * The main panel shows the map of europe and asia.
+ * This is the main screen of the game.
+ * In order to quit the game click the X button.
+ */
 public class PlayerScreen extends JFrame {
 
     JPanel topPanel;
@@ -17,16 +26,19 @@ public class PlayerScreen extends JFrame {
     CustomLabel name;
     CustomLabel place;   
     Coordinate placeCoordinate;
-    Player player;
 
+    /**
+     * Consturctor - generates a window with the 2 described panels. Initalizes player name based on input and
+     * the timer label. Creates the ImagePanel object that is the mouse listener world map.
+     * @param player
+     */
     PlayerScreen(Player player) {
         super();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("MapPIN");
         this.setSize(1000, 500);
-        this.player = new Player("", Color.BLACK);
-        this.player = player;
 
+        // top panel containing player's name, place to find, score, and timer label.
         topPanel = new JPanel();
         topPanel.setBackground(player.color);
         topPanel.setOpaque(true);
@@ -38,12 +50,9 @@ public class PlayerScreen extends JFrame {
         topSubPanel.setLayout(new GridLayout(1, 4, 5, 5));
         topSubPanel.setBackground(new Color(50, 150, 255));
 
-        this.name = new CustomLabel(player.name, 20);
-
+        name = new CustomLabel(player.name, 20);
         place = new CustomLabel("", 20);
-
         scoreJLabel = new CustomLabel("", 20);
-
         timerLabel = new CustomLabel("00:" + Utility.turnLengthInMiliseconds / 1000 + ":00", 20);
 
         topSubPanel.add(name);
@@ -54,6 +63,7 @@ public class PlayerScreen extends JFrame {
         
         this.add(topPanel, BorderLayout.NORTH);
 
+        // main panel containing the map object
         mainPanel = new JPanel();
         mainPanel.setBackground(player.color);
         mainPanel.setOpaque(true);
@@ -67,6 +77,11 @@ public class PlayerScreen extends JFrame {
         this.add(mainPanel);
     }
 
+    /**
+     * Receives the time passed since the start of the turn and updats the timer label with
+     * the remaining time for the turn
+     * @param currentTimePassed
+     */
     public void updateTimerLabel(int currentTimePassed) {
         int currentTimeRemained = Utility.turnLengthInMiliseconds - currentTimePassed;
         int secondsLeft = currentTimeRemained / 1000;
@@ -74,38 +89,15 @@ public class PlayerScreen extends JFrame {
         this.timerLabel.setText("00:"+"0".repeat(Math.max(0,1 - secondsLeft / 10))+ secondsLeft + ":" + "0".repeat(Math.max(0, 1 - milisecondsLeft / 100))+ milisecondsLeft / 10);
     }
 
-    public void changePlace(String place) {
-        this.place.setText(place);
-    }
-
-    public void resetScore() {
-        this.scoreJLabel.setText("");
-        super.repaint();
-    }
-
-    public void updatePlayer() {
-        this.name.setText(this.player.name);
+    /**
+     * Receices a player's object and updates the JFrame background color and player's name to match.
+     * Reinitializes the score label.
+     * @param player
+     */  
+    public void updatePlayer(Player player) {
+        this.name.setText(player.name);
         this.topPanel.setBackground(player.color);
         this.mainPanel.setBackground(player.color);
         this.scoreJLabel.setText("");
-    }
-
-    public void calculateScoreCity() {
-        Coordinate guess = new Coordinate((int) (this.worldMap.relativePinX * Utility.gameMapWidth),
-                                        (int) (this.worldMap.relativePinY * Utility.gameMapHeight),
-                                        "game");
-        int score = placeCoordinate.scoreGuessCity(this.worldMap.timeOfGuess, guess);
-        this.scoreJLabel.setText("" + score);
-        this.player.scores.add(score);
-        System.out.println(player.name + " " + player.sumScores());
-    }
-
-        public void calculateScoreCountry(Color color) {
-        Coordinate guess = new Coordinate((int) (this.worldMap.relativePinX * Utility.gameMapWidth),
-                                        (int) (this.worldMap.relativePinY * Utility.gameMapHeight),
-                                        "game");
-        int score = guess.scoreGuessCountry(this.worldMap.timeOfGuess, color);
-        this.scoreJLabel.setText("" + score);
-        this.player.scores.add(score);
     }
 }
