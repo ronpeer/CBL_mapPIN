@@ -28,7 +28,7 @@ public class Coordinate {
      */
     Coordinate(int gameMapX, int gameMapY, String s) {
         if (s.equals("game")) {
-            this.xGameMapCoordinate = gameMapX ;
+            this.xGameMapCoordinate = gameMapX;
             this.yGameMapCoordinate = gameMapY;
             this.xCoordinate = this.xGameMapToBackendMap(this.xGameMapCoordinate);
             this.yCoordinate = this.yGameMapToBackendMap(this.yGameMapCoordinate);

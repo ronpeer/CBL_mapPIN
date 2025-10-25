@@ -1,7 +1,7 @@
 package mappin.game;
 
 /**
- * A class containing general constants used in the program
+ * A class containing general constants used in the program.
  */
 public class Utility {
     static int gameMapWidth = 5986;
