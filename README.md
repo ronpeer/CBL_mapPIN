@@ -18,9 +18,11 @@ During the game:
 5. After clicking, you will see your score presented on the screen before the next player's turn starts.
    Not pinning any point will result in a score of 0.
 6. After all rounds are over, the final screen will automatically show with the scores of each player. That is the end of the program.
- 
 
 To quit at any point of the game, close the window as usual.
+
+To test both modes of the games - run the project, play the first game and close the window once ended. 
+Then, run the project again and choose the other mode in the start screen.
 
 # Locations used for research 
 
