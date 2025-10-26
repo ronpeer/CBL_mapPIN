@@ -1,14 +1,16 @@
 # CBL_mapPIN - Game instructions
-MapPIN - In this game, 2 players compete to check their geographical knowlege of europe and asia.
+MapPIN - In this game, 2 players compete to check their geographical knowlege of europe and asia in 4 rounds.
 
 To run the project:
-Unzip the the folder and run the file Main.java
+Unzip the the folder and run the file mapPIN\src\main\java\mappin\game\Main.java.
+Make sure your current directory is mapPIN since for DB communication to work properly, you must execute the code with the mapPIN 
+directory being your current directory.
 
 Once the program has been ran, to start the game:
-1. Type the names of the players instead of the placeholder names "player 1" and "player 2".
+1. Replace the placeholder names "player 1" and "player 2" with the names of the player if you'd like.
 2. Pick the game mode of your choosing.
-   City mode - each player will be asked to pin a city and be scored on proximity
-   Country mode - each player will be asked to pin a country and will be scored if correct
+   City mode - each player will be asked to pin a city and be scored on proximity and speed
+   Country mode - each player will be asked to pin a country and will be scored on speed and only if correct
 3. Press the start button
 
 During the game:
