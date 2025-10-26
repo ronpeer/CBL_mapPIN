@@ -17,9 +17,10 @@ During the game:
    
 4. Each player in their turn (name written on the top left part of the screen) can read the location clue
    on the top panel. Drag your mouse to the point on the map you think is closest to the clue and click on it.
-5. After clicking, you will see your score presented on the screen before the next player's turn starts.
+   Once a guess is made, it cannot be changed.
+6. After clicking, you will see your score presented on the screen before the next player's turn starts.
    Not pinning any point will result in a score of 0.
-6. After all rounds are over, the final screen will automatically show with the scores of each player. That is the end of the program.
+7. After all rounds are over, the final screen will automatically show with the scores of each player. That is the end of the program.
 
 To quit at any point of the game, close the window as usual.
 
