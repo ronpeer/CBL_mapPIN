@@ -159,8 +159,8 @@ public class Coordinate {
      * @return corresponding globe longitude (x) coordinate 
      */
     public double backendToLongitudeX(int x) {
-        return (x - 4750) / 
-                (Math.PI / 180 * Utility.mapProjectionErrorAdjusment * (4750 / Math.PI));
+        return (x - 4750) 
+            / (Math.PI / 180 * Utility.mapProjectionErrorAdjusment * (4750 / Math.PI));
     }
 
     /**
