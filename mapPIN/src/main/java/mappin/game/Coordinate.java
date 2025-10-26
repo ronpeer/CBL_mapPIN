@@ -47,8 +47,8 @@ public class Coordinate {
      * Constructor - receives latitude and longitude values of the point on the globe.
      * updates the lat-long coordinates and converts to both backend and game map representations.
      * Sets the color of the coordinates to be the color of the pixel in the backend map. 
-     * @param latitude int latitude of point on the globe
-     * @param longitude int longitude of point on the globe
+     * @param latitude double latitude of point on the globe
+     * @param longitude double longitude of point on the globe
      */
     Coordinate(double latitude, double longitude) {
         this.latitude = latitude;
@@ -128,7 +128,7 @@ public class Coordinate {
      * returns the x coordinate of the point in the backend map.
      * Using the Miller cylindrical projection formula,
      * with an error adjustment constant of Utility.mapProjectionErrorAdjustment
-     * @param longitude int longitude of point on the globe
+     * @param longitude double longitude of point on the globe
      * @return corresponding backend map x coordinate
      */
     public int longitudeToXBackendMap(double longitude) {
@@ -140,7 +140,7 @@ public class Coordinate {
      * returns the y coordinate of the point in the backend map.
      * Using the Miller cylindrical projection formula,
      * with an error adjustment constant of Utility.mapProjectionErrorAdjustment
-     * @param latitude int latitude of point on the globe
+     * @param latitude double latitude of point on the globe
      * @return corresponding backend map y coordinate
      */
     public int latitudeToYBackendMap(double latitude) {
