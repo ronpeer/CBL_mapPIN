@@ -132,7 +132,8 @@ public class Coordinate {
      * @return corresponding backend map x coordinate
      */
     public int longitudeToXBackendMap(double longitude) {
-        return (int) Math.round((4750 / Math.PI) * Utility.mapProjectionErrorAdjusment * longitude * Math.PI / 180 + 4750);
+        return (int) Math.round((4750 / Math.PI) * Utility.mapProjectionErrorAdjusment 
+                    * longitude * Math.PI / 180 + 4750); 
     }
 
     /**
@@ -144,7 +145,9 @@ public class Coordinate {
      * @return corresponding backend map y coordinate
      */
     public int latitudeToYBackendMap(double latitude) {
-        return (int) Math.round(3004 - (4750 / Math.PI) * 1.25 * Math.log(Math.tan(Math.PI / 4 + 0.4 * Utility.mapProjectionErrorAdjusment * latitude * Math.PI / 180)));
+        return (int) Math.round(3004 - (4750 / Math.PI) * 1.25 
+                    * Math.log(Math.tan(Math.PI / 4 + 0.4 * Utility.mapProjectionErrorAdjusment 
+                    * latitude * Math.PI / 180)));
     }
     
     /**
@@ -156,7 +159,8 @@ public class Coordinate {
      * @return corresponding globe longitude (x) coordinate 
      */
     public double backendToLongitudeX(int x) {
-        return (x - 4750) / (Math.PI / 180 * Utility.mapProjectionErrorAdjusment * (4750 / Math.PI));
+        return (x - 4750) / 
+                (Math.PI / 180 * Utility.mapProjectionErrorAdjusment * (4750 / Math.PI));
     }
 
     /**
@@ -168,7 +172,8 @@ public class Coordinate {
      * @return corresponding globe latitude (y) coordinate
      */
     public double backendToLatitudeY(int y) {
-        return (Math.atan(Math.exp((3004 - y) / ((4750 / Math.PI) * 1.25))) - Math.PI / 4) / (0.4 * Utility.mapProjectionErrorAdjusment * Math.PI / 180);
+        return (Math.atan(Math.exp((3004 - y) / ((4750 / Math.PI) * 1.25))) - Math.PI / 4) 
+                / (0.4 * Utility.mapProjectionErrorAdjusment * Math.PI / 180);
     }
 
     /**
@@ -185,7 +190,8 @@ public class Coordinate {
         double long2R = other.longitude * Math.PI / 180;
         double deltaLat = lat1R - lat2R;
         double deltaLong = long1R - long2R;
-        double a = Math.pow(Math.sin(deltaLat / 2), 2) + Math.cos(lat1R) * Math.cos(lat2R) * Math.pow(Math.sin(deltaLong / 2), 2);
+        double a = Math.pow(Math.sin(deltaLat / 2), 2) 
+                    + Math.cos(lat1R) * Math.cos(lat2R) * Math.pow(Math.sin(deltaLong / 2), 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
         return Utility.earthAvgRadius * c;
